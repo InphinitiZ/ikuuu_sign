@@ -27,3 +27,11 @@ python3 checkin.py --email <邮箱> --passwd <密码> [--url <站点地址>]
 2. `POST /user/checkin` — 执行每日签到
 
 两个接口均返回 JSON，包含 `ret`（1 表示成功）和 `msg` 字段。
+
+## 定时执行
+
+可配合 cron 实现每日自动签到：
+
+```bash
+0 8 * * * cd /path/to/ikuuu_sign && python3 checkin.py --email user@example.com --passwd mypassword
+```
